@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Viewer</title>
+    <script>
+        // Extract the query parameter `id`
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Map the `id` to the corresponding PDF file
+        const pdfFiles = {
+            "8f858301-ce9b-4fa5-a0ab-a5feba87b233.pdf":"certificate.pdf",
+            // Add more mappings if needed
+        };
+
+        // Redirect to the correct PDF or show an error
+        if (pdfFiles[id]) {
+            window.location.href = pdfFiles[id];
+        } else {
+            document.write("<h1>Invalid or missing certificate ID.</h1>");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
